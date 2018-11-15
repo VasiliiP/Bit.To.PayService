@@ -1,0 +1,7 @@
+﻿{
+  "HostUrl": "https://api.rmetrika.ru:443/api/v1/emails/",
+  "ConnectionStrings": {
+    "email": "Data Source=localhost;Initial Catalog=to_email;Persist Security Info=True;User ID=user;Password=userpassword"
+  },
+  "LogPath": "c:\\logs\\{0}"
+}

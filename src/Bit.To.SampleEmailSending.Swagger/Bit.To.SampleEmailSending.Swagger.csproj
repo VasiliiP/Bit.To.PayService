@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6283D3B7-4FA8-406D-A03C-7C57F3A3E803}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bit.To.SampleEmailSending</RootNamespace>
+    <AssemblyName>Bit.To.SampleEmailSending.Swagger</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nancy, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nancy.2.0.0-pre1904\lib\net452\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Metadata.Modules, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nancy.Metadata.Modules.2.0.0-pre1904\lib\net452\Nancy.Metadata.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Swagger, Version=2.2.51.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nancy.Swagger.2.2.51-alpha\lib\net452\Nancy.Swagger.dll</HintPath>
+    </Reference>
+    <Reference Include="Swagger.ObjectModel, Version=2.2.51.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Swagger.ObjectModel.2.2.51-alpha\lib\net452\Swagger.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="GetEmailItemMetadataModule.cs" />
+    <Compile Include="SendEmailDataProvider.cs" />
+    <Compile Include="SendEmailMetadataModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bit.To.SampleEmailSending.Abstractions\Bit.To.SampleEmailSending.Abstractions.csproj">
+      <Project>{eac5646d-6f48-46d4-96c1-dc6f3bc9e7fd}</Project>
+      <Name>Bit.To.SampleEmailSending.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bit.To.SampleEmailSending\Bit.To.SampleEmailSending.csproj">
+      <Project>{7cf7a4a9-8b4a-4e4a-abea-da08366e6339}</Project>
+      <Name>Bit.To.SampleEmailSending</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

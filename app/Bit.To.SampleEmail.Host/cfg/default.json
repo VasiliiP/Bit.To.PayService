@@ -1,0 +1,19 @@
+﻿{
+  "HostUrl": "http://localhost/api/v1/emails/",
+  "ServiceName": "bit.to.sampleemail",
+  "ServiceDescription": "Сервис отправки электропочты",
+  "ConnectionStrings": {
+    "email": "Data Source=localhost;Initial Catalog=to_email;Persist Security Info=True;User ID=user;Password=userpassword"
+  },
+  "LogPath": ".\\logs",
+  "FromAddress": "masha@yasha.ru",
+  "FromDisplayName": "Маша",
+  "Password": "ПарольМаши",
+  "SmtpHost": "yasha.ru",
+  "SmtpPort": 587,
+  "SvcMetaTitle": "API сервиса сообщений электронной почты",
+  "SvcMetaVer": "v1",
+  "SvcMetaDescription": "",
+  "SvcMetaContact": "admin@rmetrika.ru",
+  "SwaggerResourceListingPath": "swagger/"
+}

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CF7A4A9-8B4A-4E4A-ABEA-DA08366E6339}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bit.To.SampleEmailSending</RootNamespace>
+    <AssemblyName>Bit.To.SampleEmailSending</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bit.Cqrs.Abstractions, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bit.Cqrs.Abstractions.2.1.0\lib\net40\Bit.Cqrs.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Bit.Ddd.Abstractions, Version=4.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bit.Ddd.Abstractions.4.3.2\lib\net40\Bit.Ddd.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Bit.Persistence.Abstractions, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bit.Persistence.Abstractions.4.0.1\lib\net40\Bit.Persistence.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Bit.Persistence.Dapper.Abstractions, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bit.Persistence.Dapper.Abstractions.5.3.0\lib\net472\Bit.Persistence.Dapper.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Bit.StringUtils, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bit.StringUtils.2.0.0\lib\net40\Bit.StringUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Bit.To.PersonData.Abstractions, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bit.To.PersonData.Abstractions.3.0.0\lib\net40\Bit.To.PersonData.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Bit.Validation.Abstractions, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bit.Validation.Abstractions.2.3.2\lib\net40\Bit.Validation.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.Contrib.1.50.5\lib\net451\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="EmailValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EmailValidation.1.0.3\lib\net45\EmailValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nancy, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nancy.2.0.0-pre1904\lib\net452\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
+    <Compile Include="CommandValidators\SendEmailValidator.cs" />
+    <Compile Include="Persistence\IEmailItemRepository.cs" />
+    <Compile Include="Models\EmailItem.cs" />
+    <Compile Include="Persistence\EmailItemRepository.cs" />
+    <Compile Include="Persistence\EmailItemsDbContext.cs" />
+    <Compile Include="QueryHandlers\GetEmailItemHandler.cs" />
+    <Compile Include="Services\IMailMessageFactory.cs" />
+    <Compile Include="Services\IEmailClient.cs" />
+    <Compile Include="Services\FakeSmtpClient.cs" />
+    <Compile Include="CommandHandlers\SendEmailHandler.cs" />
+    <Compile Include="Services\MailMessageFactory.cs" />
+    <Compile Include="Web\GetEmailItemModule.cs" />
+    <Compile Include="Web\ResourceCreatedResponse.cs" />
+    <Compile Include="Web\SendEmailModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bit.To.SampleEmailSending.Abstractions\Bit.To.SampleEmailSending.Abstractions.csproj">
+      <Project>{eac5646d-6f48-46d4-96c1-dc6f3bc9e7fd}</Project>
+      <Name>Bit.To.SampleEmailSending.Abstractions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
