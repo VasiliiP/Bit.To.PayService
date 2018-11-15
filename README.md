@@ -1,1 +1,1 @@
-# Bit.To.PaymentService
+# Bit.To.PayService
